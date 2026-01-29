@@ -72,3 +72,35 @@ Beispiel mit Parametern:
 ```bash
 python main.py --browser-type firefox
 ```
+
+## 🔁 Wiederholte Nutzung (nach Neustart)
+
+Wenn du den PC neu gestartet hast oder ein neues Terminal öffnest, musst du die Umgebung nicht neu installieren, sondern nur kurz **reaktivieren**:
+
+1. **Navigiere in den Ordner:**
+
+```bash
+cd DEIN_REPO_NAME
+```
+
+2. **Aktiviere die Umgebung:**
+
+Windows:
+
+```bash
+.venv\Scripts\activate
+```
+
+macOS/Linux:
+
+```bash
+source .venv/bin/activate
+```
+
+Starte das Skript:
+
+```bash
+python main.py
+```
+
+[TIPP] Du erkennst die aktive virtuelle Umgebung daran, dass am Anfang deiner Eingabezeile im Terminal (.venv) steht.
