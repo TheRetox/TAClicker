@@ -1,4 +1,5 @@
 import re
+import sys
 import typer
 import time
 from datetime import datetime
@@ -69,29 +70,28 @@ def start_monitor(
         start_time = time.time()
         last_heartbeat = time.time()
 
-        try:
-            while True:
-            
-                btn_anwesend = page.get_by_role("button", name="Ich bin anwesend")
-
-                if btn_anwesend.is_visible():
-                    log_message("Bestätigungs-Button erkannt!", "bold green")
-                    btn_anwesend.click()
-                    break
+        while True:
+            try:
                 
-            
-                if time.time() - last_heartbeat > 10:
-                    current_duration = int(time.time() - start_time)
-                    log_message(f"Status: Überwachung läuft... (seit {current_duration}s aktiv)", "dim white")
-                    last_heartbeat = time.time()
-                
-                time.sleep(0.5)
+                    btn_anwesend = page.get_by_role("button", name="Ich bin anwesend")
 
-        except KeyboardInterrupt:
-            log_message("Überwachung durch Benutzer abgebrochen.", "yellow")
-        finally:
-            log_message("Beende Browser...", "yellow")
-            browser.close()
+                    if btn_anwesend.is_visible():
+                        log_message("Bestätigungs-Button erkannt!", "bold green")
+                        btn_anwesend.click()
+                    
+                
+                    if time.time() - last_heartbeat > 10:
+                        current_duration = int(time.time() - start_time)
+                        log_message(f"Status: Überwachung läuft... (seit {current_duration}s aktiv)", "dim white")
+                        last_heartbeat = time.time()
+                    
+                    time.sleep(0.5)
+
+            except KeyboardInterrupt:
+                log_message("Überwachung durch Benutzer abgebrochen.", "yellow")
+                log_message("Beende Browser...", "yellow")
+                browser.close()
+                sys.exit(0)
 
 if __name__ == "__main__":
     app()
