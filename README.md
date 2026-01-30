@@ -9,6 +9,32 @@ Ein automatisiertes Tool zur Überwachung von Webseiten-Buttons (z. B. Anwesenhe
 - **Echtzeit-Monitoring:** Zyklische Statusmeldungen mit Zeitstempel im Terminal.
 - **Multi-Browser:** Unterstützung für Chromium, Firefox und Webkit.
 
+## 📋 Voraussetzungen
+
+Bevor du startest, müssen **Python**, **pip** und **git** auf deinem System installiert sein.
+
+### 1. Installation der Tools
+
+- **Git:**
+  - **Windows:** Lade [git-scm.com](https://git-scm.com/download/win) herunter und installiere es.
+  - **macOS:** `brew install git` oder installiere die Xcode Command Line Tools.
+  - **Linux:** `sudo apt install git`
+- **Python & pip:**
+  - **Windows:** Lade den Installer von [python.org](https://www.python.org/downloads/) herunter.
+    **WICHTIG:** Aktiviere im Installer unbedingt den Haken bei **"Add Python to PATH"**. (Pip wird automatisch mitinstalliert).
+  - **macOS:** `brew install python`
+  - **Linux:** `sudo apt install python3 python3-pip`
+
+### 2. Installation prüfen
+
+Öffne ein Terminal (CMD, PowerShell oder Bash) und teste die Befehle:
+
+```bash
+git --version
+python --version
+pip --version
+```
+
 ## 🛠 Installation
 
 Folge diesen Schritten, um das Skript auf deinem lokalen Rechner einzurichten:
@@ -104,3 +130,7 @@ python main.py
 ```
 
 [TIPP] Du erkennst die aktive virtuelle Umgebung daran, dass am Anfang deiner Eingabezeile im Terminal (.venv) steht.
+
+```
+
+```
