@@ -130,7 +130,3 @@ python main.py
 ```
 
 [TIPP] Du erkennst die aktive virtuelle Umgebung daran, dass am Anfang deiner Eingabezeile im Terminal (.venv) steht.
-
-```
-
-```

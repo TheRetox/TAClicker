@@ -1,3 +1,5 @@
+import asyncio
+import random
 import re
 import sys
 import typer
@@ -21,7 +23,8 @@ def log_message(message: str, style: str = "green"):
 
 @app.command()
 def start_monitor(
-    browser_type: str = typer.Option("chromium", help="Browser: chromium, firefox oder webkit")
+    browser_type: str = typer.Option("chromium", help="Browser: chromium, firefox oder webkit"),
+    health_check: bool = typer.Option(False, help="Aktiviere Health-Check")
 ):
     
     console.print(Panel.fit("🚀 Button Monitor gestartet", style="bold magenta"))
@@ -77,10 +80,12 @@ def start_monitor(
 
                     if btn_anwesend.is_visible():
                         log_message("Bestätigungs-Button erkannt!", "bold green")
+                        time.sleep(random.uniform(0, 12))
                         btn_anwesend.click()
+                        log_message("Bestätigungs-Button geklickt!", "bold green")
                     
                 
-                    if time.time() - last_heartbeat > 10:
+                    if health_check and time.time() - last_heartbeat > 60:
                         current_duration = int(time.time() - start_time)
                         log_message(f"Status: Überwachung läuft... (seit {current_duration}s aktiv)", "dim white")
                         last_heartbeat = time.time()
